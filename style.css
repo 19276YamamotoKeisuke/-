@@ -32,8 +32,7 @@ th, td {
 	padding-bottom: 10px;
 	text-align: center;
 }
-td:first-child,
-td.holiday{
+td:first-child {
 	color: red;
 }
 td:last-child {
