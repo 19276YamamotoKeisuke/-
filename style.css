@@ -38,6 +38,10 @@ td:first-child {
 td:last-child {
 	color: blue;
 }
+td:first-child,
+td.holiday{
+	color: red;
+}
 td.disabled {
 	color: #ccc;
 }
@@ -45,6 +49,7 @@ td.today {
 	background-color: #D65E72;
 	color: #fff;
 }
+
 
 /*ボタン*/
 #next-prev-button {

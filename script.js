@@ -1,7 +1,9 @@
 const week = ["日", "月", "火", "水", "木", "金", "土"];
 const today = new Date();
 // 月末だとずれる可能性があるため、1日固定で取得
+//const：後から書き換え不可の関数 日データを挿入
 var showDate = new Date(today.getFullYear(), today.getMonth(), 1);
+//var：型を推測してくれる
 
 // 初期表示
 window.onload = function () {
@@ -21,9 +23,10 @@ function next(){
 
 // カレンダー表示
 function showProcess(date) {
-	var year = date.getFullYear();
-	var month = date.getMonth();
+	var year = date.getFullYear();//何年か
+	var month = date.getMonth();//何月か
 	document.querySelector('#header').innerHTML = year + "年 " + (month + 1) + "月";
+	//innerHTMLでHTMLの書き換え(#header部分)
 
 	var calendar = createProcess(year, month);
 	document.querySelector('#calendar').innerHTML = calendar;
@@ -33,14 +36,14 @@ function showProcess(date) {
 function createProcess(year, month) {
 	// 曜日
 	var calendar = "<table><tr class='dayOfWeek'>";
-	for (var i = 0; i < week.length; i++) {
+	for (var i = 0; i < week.length; i++) {// .length：配列の長さを返す
 		calendar += "<th>" + week[i] + "</th>";
 	}
 	calendar += "</tr>";
 
 	var count = 0;
-	var startDayOfWeek = new Date(year, month, 1).getDay();
-	var endDate = new Date(year, month + 1, 0).getDate();
+	var startDayOfWeek = new Date(year, month, 1).getDay();//getday：曜日
+	var endDate = new Date(year, month + 1, 0).getDate();//getdate：日付
 	var lastMonthEndDate = new Date(year, month, 0).getDate();
 	var row = Math.ceil((startDayOfWeek + endDate) / week.length);
 
